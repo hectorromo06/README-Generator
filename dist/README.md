@@ -9,13 +9,13 @@
   - [Questions](#questions)
 
   ## Description
-  Generate a ReadMe.md file from CLI user input
+  Generate a ReadMe.md file from CLI
 
   ## Installation
-  Clone the ReadMe-Generator repo - Run "npm i" command in parent directory - Run "node index" to start application - Respond to prompts in console - ReadMe.md file will be generated in /dist directory
+  Clone the ReadMe-Generator repo - Run "npm i" from the parent directory - Run "node index" to start application - Respond to the prompts in the console - ReadMe.md file will be generated in /dist directory
 
   ## Usage
-  Open to use by anyone
+  Open to use for anyone
 
   
 
@@ -27,5 +27,5 @@
 
   ## Questions
   - Visit my [GitHub](https://github.com/hectorromo06)
-  - Additional questions? email me at <hectorommmo@gmail.com>
+  - Additional questions? Email me at <hectorommmo@gmail.com>
   
