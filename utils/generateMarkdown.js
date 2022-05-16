@@ -1,3 +1,4 @@
+// Generate the Installation section
 const generateInstall = installInput => {
   // if there are no install instructions return an empty string
   if (!installInput) {
@@ -9,6 +10,7 @@ const generateInstall = installInput => {
   ${installInput}`;
 };
 
+// Generate the Usage section
 const generateUsage = usageInput => {
   // if there is no usage information return an empty string
   if (!usageInput) {
@@ -20,6 +22,7 @@ const generateUsage = usageInput => {
   ${usageInput}`;
 };
 
+// Generate the Contributing section
 const generateCont = contInput => {
   // if there are no contribution guidelines return an empty string
   if (!contInput) {
@@ -31,6 +34,7 @@ const generateCont = contInput => {
   ${contInput}`;
 };
 
+// Generate the Tests section
 const generateTest = testInput => {
   // if there are no test instructions return an empty string
   if (!testInput) {
@@ -123,8 +127,10 @@ const renderLicenseSection = license => {
   }
 };
 
+// Generate the Questions section
 const generateQuestions = (githubUsername, email) => {
   let questions;
+  // Section will only be generated if user input GitHub username or email, if neither were entered the sections will not be created
   if (githubUsername || email) {
     questions = `## Questions`
     if (githubUsername) {
@@ -133,7 +139,7 @@ const generateQuestions = (githubUsername, email) => {
     }
     if (email) {
       questions += `
-  - Additional questions? email me at <${email}>`
+  - Additional questions? Email me at <${email}>`
     }
     return questions;
   } else {
@@ -143,6 +149,8 @@ const generateQuestions = (githubUsername, email) => {
 
 // Generate Table of Contents
 const generateTOC = (installInst, usage, contribution, test, license, githubUsername, email) => {
+  // If no value is passed in then section will not be created so will not be needed in table of contents
+  // If there is a value then the section is created and a link will be added to the table of contents
   let toc = `## Table of Contents
   - [Description](#description)`;
   if (installInst) {
