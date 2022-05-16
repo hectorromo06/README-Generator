@@ -84,31 +84,31 @@ const renderLicenseLink = license => {
     case 'none':
       return ``;
     case 'Apache License 2.0':
-      return `[Read More about Apache License 2.0](https://opensource.org/licenses/Apache-2.0)`;
+      return `- [Read More about Apache License 2.0](https://opensource.org/licenses/Apache-2.0)`;
     case 'GNU General Public License v3.0':
-      return `[Read More about GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0)`;
+      return `- [Read More about GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0)`;
     case 'MIT License':
-      return `[Read More about MIT License](https://opensource.org/licenses/MIT)`;
+      return `- [Read More about MIT License](https://opensource.org/licenses/MIT)`;
     case 'BSD 2-Clause "Simplified" License':
-      return `[Read More about BSD 2-Clause "Simplified" License](https://opensource.org/licenses/BSD-2-Clause)`;
+      return `- [Read More about BSD 2-Clause "Simplified" License](https://opensource.org/licenses/BSD-2-Clause)`;
     case 'BSD 3-Clause "New" or "Revised" License':
-      return `[Read More about BSD 3-Clause "New" or "Revised" License](https://opensource.org/licenses/BSD-3-Clause)`;
+      return `- [Read More about BSD 3-Clause "New" or "Revised" License](https://opensource.org/licenses/BSD-3-Clause)`;
     case 'Boost Software License 1.0':
-      return `[Read More about Boost Software License 1.0](https://www.boost.org/LICENSE_1_0.txt)`;
+      return `- [Read More about Boost Software License 1.0](https://www.boost.org/LICENSE_1_0.txt)`;
     case 'Creative Commons Zero v1.0 Universal':
-      return `[Read More about Creative Commons Zero v1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/)`;
+      return `- [Read More about Creative Commons Zero v1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/)`;
     case 'Eclipse Public License 2.0':
-      return `[Read More about Eclipse Public License 2.0](https://opensource.org/licenses/EPL-1.0)`;
+      return `- [Read More about Eclipse Public License 2.0](https://opensource.org/licenses/EPL-1.0)`;
     case 'GNU Affero General Public License v3.0':
-      return `[Read More about GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0)`;
+      return `- [Read More about GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0)`;
     case 'GNU General Public License v2.0':
-      return `[Read More about GNU General Public License v2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`;
+      return `- [Read More about GNU General Public License v2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`;
     case 'GNU Lesser General Public License v3.0':
-      return `[Read More about GNU Lesser General Public License v3.0](https://www.gnu.org/licenses/lgpl-3.0)`;
+      return `- [Read More about GNU Lesser General Public License v3.0](https://www.gnu.org/licenses/lgpl-3.0)`;
     case 'Mozilla Public License 2.0':
-      return `[Read More about Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0)`;
+      return `- [Read More about Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0)`;
     case 'The Unlicense':
-      return `[Read More about The Unlicense](http://unlicense.org/)`;
+      return `- [Read More about The Unlicense](http://unlicense.org/)`;
   }
 }
 
@@ -117,12 +117,29 @@ const renderLicenseLink = license => {
 const renderLicenseSection = license => {
   if (license != 'none') {
     return `## License
-    ${license}`;
+  ${license}`;
   } else {
     return '';
   }
 };
 
+const generateQuestions = (githubUsername, email) => {
+  let questions;
+  if (githubUsername || email) {
+    questions = `## Questions`
+    if (githubUsername) {
+      questions += `
+  - Visit my [GitHub](https://github.com/${githubUsername})`
+    }
+    if (email) {
+      questions += `
+  - Additional questions? email me at <${email}>`
+    }
+    return questions;
+  } else {
+    return '';
+  }
+};
 
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = userInput => {
@@ -134,7 +151,9 @@ const generateMarkdown = userInput => {
     usage,
     contribution,
     test,
-    license
+    license,
+    githubUsername,
+    email
   } = userInput;
 
   // create template for MarkDown
@@ -154,6 +173,8 @@ const generateMarkdown = userInput => {
 
   ${renderLicenseSection(license)}
   ${renderLicenseLink(license)}
+
+  ${generateQuestions(githubUsername, email)}
   `;
 
   return template;

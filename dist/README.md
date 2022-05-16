@@ -4,7 +4,7 @@
   Generate a ReadMe.md file from CLI user input
 
   ## Installation
-  clone repo and run node index
+  first clone repo, run npm i in parent directory then run node index
 
   
 
@@ -13,6 +13,10 @@
   
 
   ## License
-    MIT License
-  [Read More about MIT License](https://opensource.org/licenses/MIT)
+  MIT License
+  - [Read More about MIT License](https://opensource.org/licenses/MIT)
+
+  ## Questions
+  - Visit my [GitHub](https://github.com/hectorromo06)
+  - Additional questions? email me at <hectorommmo@gmail.com>
   
