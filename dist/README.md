@@ -1,12 +1,21 @@
 # ReadMe Generator
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+  ## Table of Contents
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Questions](#questions)
+
   ## Description
   Generate a ReadMe.md file from CLI user input
 
   ## Installation
-  first clone repo, run npm i in parent directory then run node index
+  Clone the ReadMe-Generator repo - Run "npm i" command in parent directory - Run "node index" to start application - Respond to prompts in console - ReadMe.md file will be generated in /dist directory
 
-  
+  ## Usage
+  Open to use by anyone
 
   
 

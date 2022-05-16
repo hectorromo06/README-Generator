@@ -141,6 +141,37 @@ const generateQuestions = (githubUsername, email) => {
   }
 };
 
+// Generate Table of Contents
+const generateTOC = (installInst, usage, contribution, test, license, githubUsername, email) => {
+  let toc = `## Table of Contents
+  - [Description](#description)`;
+  if (installInst) {
+    toc += `
+  - [Installation](#installation)`;
+  }
+  if (usage) {
+    toc += `
+  - [Usage](#usage)`;
+  }
+  if (contribution) {
+    toc += `
+  - [Contributing](#contributing)`;
+  }
+  if (test) {
+    toc += `
+  - [Tests](#tests)`;
+  }
+  if (license) {
+    toc += `
+  - [License](#license)`;
+  }
+  if (githubUsername || email) {
+    toc += `
+  - [Questions](#questions)`;
+  }
+  return toc;
+};
+
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = userInput => {
   // Deconstruct object of user input
@@ -160,6 +191,9 @@ const generateMarkdown = userInput => {
   let template =
     `# ${title}
   ${renderLicenseBadge(license)}
+
+  ${generateTOC(installInst, usage, contribution, test, license, githubUsername, email)}
+
   ## Description
   ${description}
 
